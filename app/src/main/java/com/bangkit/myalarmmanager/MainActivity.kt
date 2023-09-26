@@ -53,6 +53,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, DialogDateListen
         binding?.btnRepeatingTime?.setOnClickListener(this)
         binding?.btnSetRepeatingAlarm?.setOnClickListener(this)
 
+        // Listener canceling alarm
+        binding?.btnCancelRepeatingAlarm?.setOnClickListener(this)
+
         alarmReceiver = AlarmReceiver()
     }
 
@@ -86,6 +89,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, DialogDateListen
                 alarmReceiver.setRepeatingAlarm(this, AlarmReceiver.TYPE_REPEATING,
                     repeatTime, repeateMessage)
             }
+            R.id.btn_cancel_repeating_alarm -> alarmReceiver.cancelAlarm(this, AlarmReceiver.TYPE_REPEATING)
         }
     }
 
